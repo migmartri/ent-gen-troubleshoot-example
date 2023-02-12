@@ -1,6 +1,8 @@
-Example made to demostrate that the issue found https://github.com/ent/ent/issues/3208 is still present even in the latest version `v0.11.8`
+Example made to demostrate that the issue https://github.com/ent/ent/issues/3208 is still present in the latest version (`v0.11.8`) of ent
 
 The issue is that the generation does not seem to be deterministic when a named import is created
+
+To reproduce
 
 ```go
 go generate ./...
@@ -27,7 +29,7 @@ index aedb17f..2345b5a 100644
  )
 ```
 
-If you run it again other file is now affected
+If you run it again another file is now affected instead
 
 ```
 diff --git a/ent/user_create.go b/ent/user_create.go
