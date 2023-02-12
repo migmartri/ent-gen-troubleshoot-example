@@ -8,13 +8,17 @@ import (
 
 	"entgo.io/ent/dialect/sql"
 	"github.com/migmartri/test-ent/ent/user"
+
+	v1 "github.com/migmartri/test-ent/api/v1"
 )
 
 // User is the model entity for the User schema.
 type User struct {
-	config
+	config `json:"-"`
 	// ID of the ent.
 	ID int `json:"id,omitempty"`
+	// Config holds the value of the "config" field.
+	Config v1.Test `json:"config,omitempty"`
 }
 
 // scanValues returns the types for scanning values from sql.Rows.
@@ -24,6 +28,8 @@ func (*User) scanValues(columns []string) ([]any, error) {
 		switch columns[i] {
 		case user.FieldID:
 			values[i] = new(sql.NullInt64)
+		case user.FieldConfig:
+			values[i] = new(v1.Test)
 		default:
 			return nil, fmt.Errorf("unexpected column %q for type User", columns[i])
 		}
@@ -45,6 +51,12 @@ func (u *User) assignValues(columns []string, values []any) error {
 				return fmt.Errorf("unexpected type %T for field id", value)
 			}
 			u.ID = int(value.Int64)
+		case user.FieldConfig:
+			if value, ok := values[i].(*v1.Test); !ok {
+				return fmt.Errorf("unexpected type %T for field config", values[i])
+			} else if value != nil {
+				u.Config = *value
+			}
 		}
 	}
 	return nil
@@ -72,7 +84,9 @@ func (u *User) Unwrap() *User {
 func (u *User) String() string {
 	var builder strings.Builder
 	builder.WriteString("User(")
-	builder.WriteString(fmt.Sprintf("id=%v", u.ID))
+	builder.WriteString(fmt.Sprintf("id=%v, ", u.ID))
+	builder.WriteString("config=")
+	builder.WriteString(fmt.Sprintf("%v", u.Config))
 	builder.WriteByte(')')
 	return builder.String()
 }

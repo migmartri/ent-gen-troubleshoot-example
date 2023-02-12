@@ -4,11 +4,14 @@ package ent
 
 import (
 	"context"
+	"errors"
 	"fmt"
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
 	"github.com/migmartri/test-ent/ent/user"
+
+	v1 "github.com/migmartri/test-ent/api/v1"
 )
 
 // UserCreate is the builder for creating a User entity.
@@ -16,6 +19,12 @@ type UserCreate struct {
 	config
 	mutation *UserMutation
 	hooks    []Hook
+}
+
+// SetConfig sets the "config" field.
+func (uc *UserCreate) SetConfig(v v1.Test) *UserCreate {
+	uc.mutation.SetConfig(v)
+	return uc
 }
 
 // Mutation returns the UserMutation object of the builder.
@@ -52,6 +61,9 @@ func (uc *UserCreate) ExecX(ctx context.Context) {
 
 // check runs all checks and user-defined validators on the builder.
 func (uc *UserCreate) check() error {
+	if _, ok := uc.mutation.Config(); !ok {
+		return &ValidationError{Name: "config", err: errors.New(`ent: missing required field "User.config"`)}
+	}
 	return nil
 }
 
@@ -78,6 +90,10 @@ func (uc *UserCreate) createSpec() (*User, *sqlgraph.CreateSpec) {
 		_node = &User{config: uc.config}
 		_spec = sqlgraph.NewCreateSpec(user.Table, sqlgraph.NewFieldSpec(user.FieldID, field.TypeInt))
 	)
+	if value, ok := uc.mutation.Config(); ok {
+		_spec.SetField(user.FieldConfig, field.TypeBytes, value)
+		_node.Config = value
+	}
 	return _node, _spec
 }
 

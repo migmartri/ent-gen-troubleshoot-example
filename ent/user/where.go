@@ -4,6 +4,7 @@ package user
 
 import (
 	"entgo.io/ent/dialect/sql"
+	v1 "github.com/migmartri/test-ent/api/v1"
 	"github.com/migmartri/test-ent/ent/predicate"
 )
 
@@ -50,6 +51,51 @@ func IDLT(id int) predicate.User {
 // IDLTE applies the LTE predicate on the ID field.
 func IDLTE(id int) predicate.User {
 	return predicate.User(sql.FieldLTE(FieldID, id))
+}
+
+// Config applies equality check predicate on the "config" field. It's identical to ConfigEQ.
+func Config(v v1.Test) predicate.User {
+	return predicate.User(sql.FieldEQ(FieldConfig, v))
+}
+
+// ConfigEQ applies the EQ predicate on the "config" field.
+func ConfigEQ(v v1.Test) predicate.User {
+	return predicate.User(sql.FieldEQ(FieldConfig, v))
+}
+
+// ConfigNEQ applies the NEQ predicate on the "config" field.
+func ConfigNEQ(v v1.Test) predicate.User {
+	return predicate.User(sql.FieldNEQ(FieldConfig, v))
+}
+
+// ConfigIn applies the In predicate on the "config" field.
+func ConfigIn(vs ...v1.Test) predicate.User {
+	return predicate.User(sql.FieldIn(FieldConfig, vs...))
+}
+
+// ConfigNotIn applies the NotIn predicate on the "config" field.
+func ConfigNotIn(vs ...v1.Test) predicate.User {
+	return predicate.User(sql.FieldNotIn(FieldConfig, vs...))
+}
+
+// ConfigGT applies the GT predicate on the "config" field.
+func ConfigGT(v v1.Test) predicate.User {
+	return predicate.User(sql.FieldGT(FieldConfig, v))
+}
+
+// ConfigGTE applies the GTE predicate on the "config" field.
+func ConfigGTE(v v1.Test) predicate.User {
+	return predicate.User(sql.FieldGTE(FieldConfig, v))
+}
+
+// ConfigLT applies the LT predicate on the "config" field.
+func ConfigLT(v v1.Test) predicate.User {
+	return predicate.User(sql.FieldLT(FieldConfig, v))
+}
+
+// ConfigLTE applies the LTE predicate on the "config" field.
+func ConfigLTE(v v1.Test) predicate.User {
+	return predicate.User(sql.FieldLTE(FieldConfig, v))
 }
 
 // And groups predicates with the AND operator between them.

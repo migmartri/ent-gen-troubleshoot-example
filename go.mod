@@ -2,7 +2,10 @@ module github.com/migmartri/test-ent
 
 go 1.19
 
-require entgo.io/ent v0.11.8
+require (
+	entgo.io/ent v0.11.8
+	google.golang.org/protobuf v1.28.1
+)
 
 require (
 	ariga.io/atlas v0.9.1-0.20230119145809-92243f7c55cb // indirect

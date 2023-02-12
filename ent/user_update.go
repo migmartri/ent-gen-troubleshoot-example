@@ -10,6 +10,7 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
+	v1 "github.com/migmartri/test-ent/api/v1"
 	"github.com/migmartri/test-ent/ent/predicate"
 	"github.com/migmartri/test-ent/ent/user"
 )
@@ -24,6 +25,12 @@ type UserUpdate struct {
 // Where appends a list predicates to the UserUpdate builder.
 func (uu *UserUpdate) Where(ps ...predicate.User) *UserUpdate {
 	uu.mutation.Where(ps...)
+	return uu
+}
+
+// SetConfig sets the "config" field.
+func (uu *UserUpdate) SetConfig(v v1.Test) *UserUpdate {
+	uu.mutation.SetConfig(v)
 	return uu
 }
 
@@ -68,6 +75,9 @@ func (uu *UserUpdate) sqlSave(ctx context.Context) (n int, err error) {
 			}
 		}
 	}
+	if value, ok := uu.mutation.Config(); ok {
+		_spec.SetField(user.FieldConfig, field.TypeBytes, value)
+	}
 	if n, err = sqlgraph.UpdateNodes(ctx, uu.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
 			err = &NotFoundError{user.Label}
@@ -86,6 +96,12 @@ type UserUpdateOne struct {
 	fields   []string
 	hooks    []Hook
 	mutation *UserMutation
+}
+
+// SetConfig sets the "config" field.
+func (uuo *UserUpdateOne) SetConfig(v v1.Test) *UserUpdateOne {
+	uuo.mutation.SetConfig(v)
+	return uuo
 }
 
 // Mutation returns the UserMutation object of the builder.
@@ -158,6 +174,9 @@ func (uuo *UserUpdateOne) sqlSave(ctx context.Context) (_node *User, err error) 
 				ps[i](selector)
 			}
 		}
+	}
+	if value, ok := uuo.mutation.Config(); ok {
+		_spec.SetField(user.FieldConfig, field.TypeBytes, value)
 	}
 	_node = &User{config: uuo.config}
 	_spec.Assign = _node.assignValues

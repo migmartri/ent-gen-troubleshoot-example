@@ -2,7 +2,8 @@ package schema
 
 import (
 	"entgo.io/ent"
-	_ "github.com/migmartri/test-ent/api/v1"
+	"entgo.io/ent/schema/field"
+	v1 "github.com/migmartri/test-ent/api/v1"
 )
 
 // User holds the schema definition for the User entity.
@@ -12,7 +13,9 @@ type User struct {
 
 // Fields of the User.
 func (User) Fields() []ent.Field {
-	return nil
+	return []ent.Field{
+		field.Bytes("config").GoType(v1.Test{}),
+	}
 }
 
 // Edges of the User.
