@@ -1,6 +1,9 @@
 package schema
 
-import "entgo.io/ent"
+import (
+	"entgo.io/ent"
+	_ "github.com/migmartri/test-ent/api/v1"
+)
 
 // User holds the schema definition for the User entity.
 type User struct {
