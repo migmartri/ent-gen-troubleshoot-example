@@ -8,9 +8,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/migmartri/test-ent/ent/migrate"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/migrate"
 
-	"github.com/migmartri/test-ent/ent/user"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/user"
 
 	"entgo.io/ent/dialect"
 	"entgo.io/ent/dialect/sql"

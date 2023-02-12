@@ -10,9 +10,9 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	v1 "github.com/migmartri/test-ent/api/v1"
-	"github.com/migmartri/test-ent/ent/predicate"
-	"github.com/migmartri/test-ent/ent/user"
+	v1 "github.com/migmartri/ent-gen-troubleshoot-example/api/v1"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/predicate"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/user"
 )
 
 // UserUpdate is the builder for updating User entities.

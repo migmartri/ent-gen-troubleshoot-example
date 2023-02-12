@@ -8,8 +8,8 @@ import (
 	"entgo.io/ent/dialect/sql"
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/migmartri/test-ent/ent/predicate"
-	"github.com/migmartri/test-ent/ent/user"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/predicate"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/user"
 )
 
 // UserDelete is the builder for deleting a User entity.

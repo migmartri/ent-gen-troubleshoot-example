@@ -4,8 +4,8 @@ package user
 
 import (
 	"entgo.io/ent/dialect/sql"
-	v1 "github.com/migmartri/test-ent/api/v1"
-	"github.com/migmartri/test-ent/ent/predicate"
+	v1 "github.com/migmartri/ent-gen-troubleshoot-example/api/v1"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/predicate"
 )
 
 // ID filters vertices based on their ID field.

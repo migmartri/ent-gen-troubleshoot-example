@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/migmartri/test-ent/ent"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent"
 )
 
 // The UserFunc type is an adapter to allow the use of ordinary

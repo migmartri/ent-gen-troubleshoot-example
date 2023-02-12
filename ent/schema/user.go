@@ -3,7 +3,7 @@ package schema
 import (
 	"entgo.io/ent"
 	"entgo.io/ent/schema/field"
-	v1 "github.com/migmartri/test-ent/api/v1"
+	v1 "github.com/migmartri/ent-gen-troubleshoot-example/api/v1"
 )
 
 // User holds the schema definition for the User entity.

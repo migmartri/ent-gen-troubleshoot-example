@@ -2,7 +2,7 @@
 
 package runtime
 
-// The schema-stitching logic is generated in github.com/migmartri/test-ent/ent/runtime.go
+// The schema-stitching logic is generated in github.com/migmartri/ent-gen-troubleshoot-example/ent/runtime.go
 
 const (
 	Version = "v0.11.8"                                         // Version of ent codegen.

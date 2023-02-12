@@ -5,12 +5,12 @@ package enttest
 import (
 	"context"
 
-	"github.com/migmartri/test-ent/ent"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent"
 	// required by schema hooks.
-	_ "github.com/migmartri/test-ent/ent/runtime"
+	_ "github.com/migmartri/ent-gen-troubleshoot-example/ent/runtime"
 
 	"entgo.io/ent/dialect/sql/schema"
-	"github.com/migmartri/test-ent/ent/migrate"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/migrate"
 )
 
 type (

@@ -1,4 +1,4 @@
-module github.com/migmartri/test-ent
+module github.com/migmartri/ent-gen-troubleshoot-example
 
 go 1.19
 

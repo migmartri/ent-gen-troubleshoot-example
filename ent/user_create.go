@@ -9,9 +9,9 @@ import (
 
 	"entgo.io/ent/dialect/sql/sqlgraph"
 	"entgo.io/ent/schema/field"
-	"github.com/migmartri/test-ent/ent/user"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/user"
 
-	v1 "github.com/migmartri/test-ent/api/v1"
+	v1 "github.com/migmartri/ent-gen-troubleshoot-example/api/v1"
 )
 
 // UserCreate is the builder for creating a User entity.
