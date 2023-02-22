@@ -7,9 +7,8 @@ import (
 	"strings"
 
 	"entgo.io/ent/dialect/sql"
-	"github.com/migmartri/ent-gen-troubleshoot-example/ent/user"
-
 	v1 "github.com/migmartri/ent-gen-troubleshoot-example/api/v1"
+	"github.com/migmartri/ent-gen-troubleshoot-example/ent/user"
 )
 
 // User is the model entity for the User schema.

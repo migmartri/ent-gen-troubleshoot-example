@@ -8,12 +8,11 @@ import (
 	"fmt"
 	"sync"
 
+	"entgo.io/ent"
+	"entgo.io/ent/dialect/sql"
 	v1 "github.com/migmartri/ent-gen-troubleshoot-example/api/v1"
 	"github.com/migmartri/ent-gen-troubleshoot-example/ent/predicate"
 	"github.com/migmartri/ent-gen-troubleshoot-example/ent/user"
-
-	"entgo.io/ent"
-	"entgo.io/ent/dialect/sql"
 )
 
 const (

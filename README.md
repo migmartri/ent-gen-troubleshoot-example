@@ -1,3 +1,11 @@
+### Update
+
+A patch for this issue has been merged https://github.com/ent/ent/pull/3344
+
+Thanks @a8m!
+
+### Introduction
+
 Example made to demostrate that the issue https://github.com/ent/ent/issues/3208 is still present in the latest version (`v0.11.8`) of ent
 
 The issue is that the generation does not seem to be deterministic when a named import is created

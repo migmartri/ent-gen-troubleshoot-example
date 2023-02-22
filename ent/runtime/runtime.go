@@ -5,6 +5,6 @@ package runtime
 // The schema-stitching logic is generated in github.com/migmartri/ent-gen-troubleshoot-example/ent/runtime.go
 
 const (
-	Version = "v0.11.8"                                         // Version of ent codegen.
-	Sum     = "h1:M/M0QL1CYCUSdqGRXUrXhFYSDRJPsOOrr+RLEej/gyQ=" // Sum of ent codegen.
+	Version = "v0.11.9-0.20230222192915-9c40fbc07b69"           // Version of ent codegen.
+	Sum     = "h1:7+IuRi1djFI27EFyasEuNskOCe8fVnI3A7irJGO4Bbo=" // Sum of ent codegen.
 )
